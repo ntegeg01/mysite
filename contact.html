@@ -33,9 +33,58 @@
           <input type="text" name="name" placeholder="Full name" required>
           <input type="email" name="email" placeholder="Email" required>
           <input type="tel" name="phone" placeholder="Phone">
-          <textarea name="message" rows="4" placeholder="Message"></textarea>
+        
+          <!-- Pickup location dropdown -->
+          <label for="pickup">Pickup Location:</label>
+          <select id="pickup" name="pickup" required>
+            <option value="" disabled selected>Select pickup location</option>
+            <option>CLT Airport</option>
+            <option>Uptown Charlotte</option>
+            <option>Ballantyne Resort</option>
+            <option>Carolina Mall - Pineville</option>
+            <option>Concord Mills</option>
+            <option>Northlake Mall</option>
+            <option>PNC Pavilion</option>
+            <option>Whitewater Center</option>
+            <option>SouthPark Mall</option>
+            <option>Lake Norman (Exits 23–28)</option>
+            <option>Quail Hollow</option>
+            <option>Charlotte Country Club</option>
+            <option>Mooresville</option>
+            <option>Rock Hill</option>
+            <option>Matthews</option>
+            <option>Harrisburg</option>
+            <option>Other (please specify in message)</option>
+          </select>
+        
+          <!-- Dropoff location dropdown -->
+          <label for="dropoff">Dropoff Location:</label>
+          <select id="dropoff" name="dropoff" required>
+            <option value="" disabled selected>Select dropoff location</option>
+            <option>CLT Airport</option>
+            <option>Uptown Charlotte</option>
+            <option>Ballantyne Resort</option>
+            <option>Carolina Mall - Pineville</option>
+            <option>Concord Mills</option>
+            <option>Northlake Mall</option>
+            <option>PNC Pavilion</option>
+            <option>Whitewater Center</option>
+            <option>SouthPark Mall</option>
+            <option>Lake Norman (Exits 23–28)</option>
+            <option>Quail Hollow</option>
+            <option>Charlotte Country Club</option>
+            <option>Mooresville</option>
+            <option>Rock Hill</option>
+            <option>Matthews</option>
+            <option>Harrisburg</option>
+            <option>Other (please specify in message)</option>
+          </select>
+        
+          <textarea name="message" rows="4" placeholder="Additional details (optional)"></textarea>
+          
           <button class="btn" type="submit">Send Message</button>
         </form>
+        
         
       </div>
     </main>

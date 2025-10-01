@@ -4,7 +4,7 @@
 :root {
   --brand: #0a6b88;
   --brand-dark: #064a5b;
-  --text: #222;
+  --text: #1a577d;
   --muted: #666;
   --bg: #fff;
   --radius: 10px;
@@ -33,29 +33,31 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 14px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f3f0f0;
   position: sticky;
   top: 0;
-  background: #fff;
+  background: #ffffff;
   z-index: 10;
 }
+
+
 .brand {
   display: flex;
   align-items: center;
   gap: 100px;
 }
-.logo-img { height: 100px; width: auto; }
+.logo-img { height: 120px; width: auto; }
 header nav {
   display: flex;
   gap: 14px;
 }
 header nav a {
   font-weight: 600;
-  color: var(--muted);
+  color: rgb(5, 104, 180);
   padding: 8px 10px;
   border-radius: 6px;
 }
-header nav a:hover { background: rgba(10,107,136,0.1); color: var(--brand-dark); }
+header nav a:hover { background: rgba(4, 203, 243, 0.994); color: var(--brand-dark); }
 
 /* Hero */
 .hero {
@@ -209,6 +211,33 @@ footer {
 .slideshow .next { right: 10px; }
 .slideshow .prev:hover,
 .slideshow .next:hover { background: rgba(0,0,0,0.8); }
+
+/* Dropdown styling */
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+select:focus {
+  border-color: var(--brand);
+  box-shadow: var(--focus);
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  margin: 8px 0 4px;
+  display: block;
+  color: var(--muted);
+}
+
 
 
   
