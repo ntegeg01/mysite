@@ -11,7 +11,7 @@
       <div class="brand">
         <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img">
         <div>
-          <div style="font-weight:200">YO Limo & Transportation LLC</div>
+          <div style="font-weight:700">YO Limo & Transportation LLC</div>
           <div class="small">Professional | Reliable | On-time</div>
         </div>
       </div>
@@ -25,6 +25,17 @@
     </header>
 
     <main>
+      <section class="slideshow">
+        <div class="slides">
+          <img src="images/yukonxl.jpg" alt="GMC Yukon XL">
+          <img src="images/chevy.jpg" alt="Chevy Suburban">
+          <img src="images/ford.jpg" alt="2025 Ford Expedition Max Black">
+        </div>
+        <!-- navigation arrows -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </section>
+      
       <section class="hero">
         <div class="hero-card">
           <h1>Luxury Transportation in Charlotte & Beyond</h1>
@@ -47,5 +58,38 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slideshow img');
+    const prevBtn = document.querySelector('.slideshow .prev');
+    const nextBtn = document.querySelector('.slideshow .next');
+    
+    function showSlide(n) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === n) slide.classList.add('active');
+      });
+    }
+    
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }
+    
+    function prevSlide() {
+      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+      showSlide(slideIndex);
+    }
+    
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Auto play every 5s
+    setInterval(nextSlide, 3000);
+    
+    // Show first slide
+    showSlide(slideIndex);
+    </script>
+    
 </body>
 </html>

@@ -8,27 +8,35 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand"> <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img"></div<div style="font-weight:700">YO Limo & Transportation LLC</div></div></div>
+      <div class="brand">
+        <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img">
+        <div>
+          <div style="font-weight:700">YO Limo & Transportation LLC</div>
+        </div>
+      </div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="fleet.html">Fleet</a>
         <a href="rates.html">Rates</a>
         <a href="driver-training.html">Driver Training</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
+    
 
     <main>
       <h2>Contact & Location</h2>
       <div class="card">
         <p>Call us 24/7 at <strong>(704) 430-1586</strong> or email <strong>yotlimo@gmail.com</strong></p>
-        <form>
-          <input type="text" placeholder="Full name" required>
-          <input type="email" placeholder="Email" required>
-          <input type="tel" placeholder="Phone">
-          <textarea rows="4" placeholder="Message"></textarea>
+        <form action="https://formspree.io/f/mkgqbnlv" method="POST">
+          <input type="text" name="name" placeholder="Full name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="tel" name="phone" placeholder="Phone">
+          <textarea name="message" rows="4" placeholder="Message"></textarea>
           <button class="btn" type="submit">Send Message</button>
         </form>
+        
       </div>
     </main>
 
