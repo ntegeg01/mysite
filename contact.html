@@ -30,6 +30,7 @@
       <div class="card">
         <p>Call us 24/7 at <strong>(704) 430-1586</strong> or email <strong>yotlimo@gmail.com</strong></p>
         <form action="https://formspree.io/f/mkgqbnlv" method="POST">
+          <input type="hidden" name="EmailLink" value="">
           <input type="text" name="name" placeholder="Full name" required>
           <input type="email" name="email" placeholder="Email" required>
           <input type="tel" name="phone" placeholder="Phone">
@@ -84,8 +85,12 @@
           
           <button class="btn" type="submit">Send Message</button>
         </form>
-        
-        
+        <script>
+          document.querySelector("form").addEventListener("submit", function() {
+            let email = document.querySelector("input[name='email']").value;
+            document.querySelector("input[name='EmailLink']").value = "mailto:" + email;
+          });
+          </script>
       </div>
     </main>
 
