@@ -46,7 +46,7 @@ header {
   align-items: center;
   gap: 100px;
 }
-.logo-img { height: 120px; width: auto; }
+.logo-img { height: 200px; width: auto; }
 header nav {
   display: flex;
   gap: 14px;
@@ -88,7 +88,7 @@ header nav a:hover { background: rgba(4, 203, 243, 0.994); color: var(--brand-da
 
 /* Sections */
 main { padding: 40px 0; }
-h2 { font-size: 1.6rem; margin-bottom: 20px; }
+h2 { font-size: 1.1rem; margin-bottom: 20px; }
 h3 { margin-top: 20px; }
 
 /* Cards / grids */
@@ -99,6 +99,12 @@ h3 { margin-top: 20px; }
   box-shadow: var(--shadow);
   margin-bottom: 20px;
 }
+.company-name {
+  font-size: 2rem;   /* adjust bigger: 2rem ≈ 32px */
+  font-weight: 700;  /* bold */
+  color: var(--text); /* keep consistent with your theme */
+}
+
 .grid {
   display: grid;
   gap: 20px;
