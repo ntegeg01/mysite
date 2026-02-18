@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -euo pipefail
 
-ENDPOINT="${TEST_BOOKING_ENDPOINT:-https://formspree.io/f/xjgeoowv}"
+ENDPOINT="${TEST_BOOKING_ENDPOINT:-https://formspree.io/f/mkgqbnlv}"
 
 # How many bookings to send
 TOTAL="${1:-20}"          # default 20 if not provided

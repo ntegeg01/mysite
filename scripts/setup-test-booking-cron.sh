@@ -11,7 +11,7 @@ if [[ ! -x "$SCRIPT_PATH" ]]; then
   exit 1
 fi
 
-CRON_LINE="0 9 */3 * * TEST_BOOKING_ENDPOINT=https://formspree.io/f/xjgeoowv \"$SCRIPT_PATH\" >> \"$LOG_PATH\" 2>&1"
+CRON_LINE="0 9 */3 * * TEST_BOOKING_ENDPOINT=https://formspree.io/f/mkgqbnlv \"$SCRIPT_PATH\" >> \"$LOG_PATH\" 2>&1"
 
 TMP_FILE="$(mktemp)"
 crontab -l 2>/dev/null | rg -v "test-booking.sh" > "$TMP_FILE" || true
