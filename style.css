@@ -761,3 +761,59 @@ textarea:focus {
     box-shadow: var(--shadow-soft);
   }
 }
+
+.page-reviews .page-hero {
+  background-image: url("images/reviews-bg.jpg"), url("images/city-night.png");
+}
+
+.reviews-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.star {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #b9c2cf;
+  border-radius: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.star.on {
+  color: #d9a62d;
+}
+
+.reviews-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.review-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.8rem 0.9rem;
+}
+
+.review-item p {
+  margin: 0;
+}
+
+.review-item p + p {
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 760px) {
+  .reviews-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}

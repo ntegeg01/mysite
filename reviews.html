@@ -1,36 +1,207 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Reviews</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="wrap" style="padding:40px 0">
-    <h1 class="section-title">Rate Your Ride</h1>
-    <div class="card">
-      <form id="review-form">
-        <input id="name" placeholder="Your name" required />
-        <div id="stars">
-          <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reviews | YO Limo & Transportation LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page page-reviews">
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img" />
+          <div>
+            <p class="brand-name">YO Limo & Transportation</p>
+            <p class="brand-tag">Professional • Reliable • On Time</p>
+          </div>
+        </a>
+        <button class="nav-toggle" data-menu-btn aria-expanded="false">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="fleet.html">Fleet</a>
+          <a href="rates.html">Rates</a>
+          <a href="reviews.html" aria-current="page">Reviews</a>
+          <a href="driver-training.html">Driver Training</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-tools">
+          <div class="header-phones">
+            <a href="tel:+17044301586">(704) 430-1586</a>
+          </div>
+          <a class="btn btn-gold header-book" href="contact.html">Book Now</a>
         </div>
-        <input id="rating" type="hidden" required />
-        <textarea id="msg" placeholder="Write your review" required></textarea>
-        <button class="btn btn-primary">Submit</button>
-      </form>
-      <h3>Reviews</h3>
-      <div id="list"></div>
+      </div>
+    </header>
+
+    <div class="mobile-contact">
+      <a href="tel:+17044301586">Call: (704) 430-1586</a>
+      <a href="mailto:yotlimo@gmail.com">Email: yotlimo@gmail.com</a>
     </div>
-  </main>
-  <script>
-    const key="yo_limo_reviews", stars=[...document.querySelectorAll("#stars button")], rating=document.getElementById("rating"), list=document.getElementById("list");
-    const load=()=>JSON.parse(localStorage.getItem(key)||"[]"), save=v=>localStorage.setItem(key,JSON.stringify(v));
-    const paint=n=>stars.forEach((s,i)=>s.style.color=i<n?"#f1c95e":"#bbb");
-    const render=()=>{const r=load(); list.innerHTML=r.length?r.map(x=>`<p><strong>${x.name}</strong> ${"★".repeat(x.rating)}<br>${x.msg}</p>`).join(""):"<p>No reviews yet.</p>";};
-    stars.forEach(s=>s.onclick=()=>{rating.value=s.dataset.v; paint(+s.dataset.v);});
-    document.getElementById("review-form").onsubmit=e=>{e.preventDefault(); const name=document.getElementById("name").value.trim(), msg=document.getElementById("msg").value.trim(), v=+rating.value; if(!name||!msg||v<1)return; const r=load(); r.push({name,msg,rating:v}); save(r); e.target.reset(); rating.value=""; paint(0); render();};
-    render();
-  </script>
-</body>
+
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <p class="page-hero-kicker">Reviews</p>
+        <h1>Rate Your Ride</h1>
+        <p>See what riders are saying and share your experience with us.</p>
+      </div>
+    </section>
+
+    <main class="wrap page-main">
+      <section class="card reviews-grid">
+        <article>
+          <h3>Leave a Review</h3>
+          <form id="review-form">
+            <input id="reviewer-name" type="text" placeholder="Your name" required maxlength="60" />
+
+            <label>Star Rating</label>
+            <div class="stars" id="star-picker" role="radiogroup" aria-label="Rate from 1 to 5 stars">
+              <button type="button" class="star" data-value="1" aria-label="1 star">★</button>
+              <button type="button" class="star" data-value="2" aria-label="2 stars">★</button>
+              <button type="button" class="star" data-value="3" aria-label="3 stars">★</button>
+              <button type="button" class="star" data-value="4" aria-label="4 stars">★</button>
+              <button type="button" class="star" data-value="5" aria-label="5 stars">★</button>
+            </div>
+            <input id="rating-value" type="hidden" required />
+
+            <textarea id="review-message" placeholder="Tell us about your ride" required minlength="8" maxlength="600"></textarea>
+            <button class="btn btn-primary" type="submit">Submit Review</button>
+          </form>
+          <p id="review-status" class="small" aria-live="polite"></p>
+        </article>
+
+        <article>
+          <h3>Customer Reviews</h3>
+          <p class="small"><strong id="review-count">0</strong> reviews • Average <strong id="avg-rating">0.0</strong> / 5</p>
+          <div id="reviews-list" class="reviews-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">© <span data-year></span> YO Limo & Transportation LLC • All rights reserved</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import {
+        addDoc,
+        collection,
+        getFirestore,
+        onSnapshot,
+        orderBy,
+        query,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDWWX5bCBWUvUsrjDstVXOD486HBsC7xwM",
+        authDomain: "yo-limo-site-c15a3.firebaseapp.com",
+        projectId: "yo-limo-site-c15a3",
+        storageBucket: "yo-limo-site-c15a3.firebasestorage.app",
+        messagingSenderId: "325123961028",
+        appId: "1:325123961028:web:3029af9987d4dc94e39991",
+      };
+
+
+      const isConfigured = !Object.values(firebaseConfig).some((v) => String(v).includes("REPLACE_ME"));
+
+      const form = document.getElementById("review-form");
+      const stars = [...document.querySelectorAll(".star")];
+      const ratingInput = document.getElementById("rating-value");
+      const statusEl = document.getElementById("review-status");
+      const listEl = document.getElementById("reviews-list");
+      const countEl = document.getElementById("review-count");
+      const avgEl = document.getElementById("avg-rating");
+
+      function paintStars(value) {
+        stars.forEach((star, i) => {
+          star.classList.toggle("on", i < value);
+        });
+      }
+
+      function renderEmpty(message) {
+        listEl.innerHTML = `<p class="small">${message}</p>`;
+        countEl.textContent = "0";
+        avgEl.textContent = "0.0";
+      }
+
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          const value = Number(star.dataset.value);
+          ratingInput.value = String(value);
+          paintStars(value);
+        });
+      });
+
+      if (!isConfigured) {
+        renderEmpty("Firebase is not configured yet. Add your Firebase keys in reviews.html.");
+        form.addEventListener("submit", (e) => e.preventDefault());
+      } else {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const reviewsRef = collection(db, "reviews");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("reviewer-name").value.trim();
+          const message = document.getElementById("review-message").value.trim();
+          const rating = Number(ratingInput.value);
+
+          if (!name || !message || rating < 1 || rating > 5) {
+            statusEl.textContent = "Please enter your name, review, and select a star rating.";
+            return;
+          }
+
+          try {
+            await addDoc(reviewsRef, {
+              name,
+              message,
+              rating,
+              createdAt: serverTimestamp(),
+            });
+
+            form.reset();
+            ratingInput.value = "";
+            paintStars(0);
+            statusEl.textContent = "Thank you. Your review was submitted.";
+          } catch {
+            statusEl.textContent = "Could not submit review right now. Please try again.";
+          }
+        });
+
+        const q = query(reviewsRef, orderBy("createdAt", "desc"));
+        onSnapshot(q, (snapshot) => {
+          const reviews = snapshot.docs
+            .map((doc) => ({ id: doc.id, ...doc.data() }))
+            .filter((r) => typeof r.rating === "number" && r.name && r.message);
+
+          if (reviews.length === 0) {
+            renderEmpty("No reviews yet. Be the first to leave one.");
+            return;
+          }
+
+          const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+          avgEl.textContent = (total / reviews.length).toFixed(1);
+          countEl.textContent = String(reviews.length);
+
+          listEl.innerHTML = reviews
+            .map((r) => {
+              const starsText = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+              return `<article class="review-item"><p class="small"><strong>${r.name}</strong> • ${starsText}</p><p>${r.message}</p></article>`;
+            })
+            .join("");
+        });
+      }
+    </script>
+  </body>
 </html>
