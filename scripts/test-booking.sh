@@ -3,14 +3,14 @@ set -euo pipefail
 
 ENDPOINT="${TEST_BOOKING_ENDPOINT:-https://formspree.io/f/mkgqbnlv}"
 TOTAL="${1:-20}"
-PARALLEL=2  # lowered to reduce spam detection
+PARALLEL=2
 
 FIRST_NAMES=("Liam" "Noah" "Mason" "Ethan" "Lucas" "Elijah" "James" "Benjamin" "Henry" "Jack" "Oliver" "William")
 LAST_NAMES=("Johnson" "Williams" "Brown" "Jones" "Garcia" "Miller" "Wilson" "Moore" "Taylor" "Anderson" "Thomas" "Jackson")
 PICKUPS=("CLT Airport" "Uptown Charlotte" "SouthPark Mall" "Concord Mills")
 DROPOFFS=("Ballantyne Resort" "Whitewater Center" "Mooresville" "Rock Hill")
 SPECIAL_REQUESTS=("Need child seat" "Extra luggage (4 bags)" "Flight arriving early" "Wheelchair assistance" "Late-night pickup" "VIP service requested" "No special requests")
-AIRLINES=("AA" "DL" "UA" "SW" "B6")
+AREA_CODES=("704" "980" "803" "336" "910")
 
 RESULTS_FILE=$(mktemp)
 
@@ -28,15 +28,13 @@ submit_booking() {
   local ampm=$([ $((RANDOM % 2)) -eq 0 ] && echo "AM" || echo "PM")
   local pickup_time="${hour}:${minute} ${ampm}"
   local passengers=$((RANDOM % 4 + 1))
-  local airline="${AIRLINES[$((RANDOM % ${#AIRLINES[@]} + 1))]}"
-  local flight_number="${airline}$((RANDOM % 9000 + 1000))"
+  local area="${AREA_CODES[$((RANDOM % ${#AREA_CODES[@]} + 1))]}"
+  local phone="${area}-$((RANDOM % 900 + 100))-$((RANDOM % 9000 + 1000))"
   local email="${first:l}.${last:l}$((RANDOM % 9000 + 1000))@gmail.com"
-  local phone="$((RANDOM % 900 + 100))-$((RANDOM % 900 + 100))-$((RANDOM % 9000 + 1000))"
 
-  # Random delay between 1-4 seconds to avoid rate limiting
   sleep $((RANDOM % 4 + 1))
 
-local status=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST "$ENDPOINT" \
+  local status=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST "$ENDPOINT" \
     -H "Content-Type: application/x-www-form-urlencoded" \
     --data-urlencode "name=${name}" \
     --data-urlencode "_replyto=${email}" \
@@ -47,11 +45,10 @@ local status=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST "$ENDPOINT" \
     --data-urlencode "pickup_date=${pickup_date}" \
     --data-urlencode "pickup_time=${pickup_time}" \
     --data-urlencode "passengers=${passengers}" \
-    --data-urlencode "flight_number=${flight_number}" \
     --data-urlencode "special_requests=${special}")
 
   if [[ "$status" == "200" || "$status" == "302" ]]; then
-    echo "✅ [$status] ${name} | ${pickup} → ${dropoff} | ${pickup_date} ${pickup_time}"
+    echo "✅ [$status] ${name} | ${phone} | ${pickup} → ${dropoff} | ${pickup_date} ${pickup_time}"
     echo "ok" >> "$RESULTS_FILE"
   else
     echo "❌ [$status] ${name} | ${pickup} → ${dropoff}"
