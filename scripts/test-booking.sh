@@ -36,8 +36,7 @@ submit_booking() {
   # Random delay between 1-4 seconds to avoid rate limiting
   sleep $((RANDOM % 4 + 1))
 
-  local status
-  status=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$ENDPOINT" \
+local status=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST "$ENDPOINT" \
     -H "Content-Type: application/x-www-form-urlencoded" \
     --data-urlencode "name=${name}" \
     --data-urlencode "_replyto=${email}" \
