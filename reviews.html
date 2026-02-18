@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reviews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap" style="padding:40px 0">
+    <h1 class="section-title">Rate Your Ride</h1>
+    <div class="card">
+      <form id="review-form">
+        <input id="name" placeholder="Your name" required />
+        <div id="stars">
+          <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+        </div>
+        <input id="rating" type="hidden" required />
+        <textarea id="msg" placeholder="Write your review" required></textarea>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+      <h3>Reviews</h3>
+      <div id="list"></div>
+    </div>
+  </main>
+  <script>
+    const key="yo_limo_reviews", stars=[...document.querySelectorAll("#stars button")], rating=document.getElementById("rating"), list=document.getElementById("list");
+    const load=()=>JSON.parse(localStorage.getItem(key)||"[]"), save=v=>localStorage.setItem(key,JSON.stringify(v));
+    const paint=n=>stars.forEach((s,i)=>s.style.color=i<n?"#f1c95e":"#bbb");
+    const render=()=>{const r=load(); list.innerHTML=r.length?r.map(x=>`<p><strong>${x.name}</strong> ${"★".repeat(x.rating)}<br>${x.msg}</p>`).join(""):"<p>No reviews yet.</p>";};
+    stars.forEach(s=>s.onclick=()=>{rating.value=s.dataset.v; paint(+s.dataset.v);});
+    document.getElementById("review-form").onsubmit=e=>{e.preventDefault(); const name=document.getElementById("name").value.trim(), msg=document.getElementById("msg").value.trim(), v=+rating.value; if(!name||!msg||v<1)return; const r=load(); r.push({name,msg,rating:v}); save(r); e.target.reset(); rating.value=""; paint(0); render();};
+    render();
+  </script>
+</body>
+</html>
