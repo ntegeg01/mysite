@@ -1,95 +1,135 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>YO Limo & Transportation LLC</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img">
-        <div>
-          <div class="company-name">YO Limo & Transportation LLC</div>
-          <div class="small">Professional | Reliable | On-time</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YO Limo & Transportation LLC | Charlotte Luxury Rides</title>
+    <meta
+      name="description"
+      content="Luxury SUV transportation in Charlotte for airport transfers, corporate rides, events, and private travel."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page page-home">
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html" aria-label="YO Limo Home">
+          <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img" />
+          <div>
+            <p class="brand-name">YO Limo & Transportation</p>
+            <p class="brand-tag">Professional • Reliable • On Time</p>
+          </div>
+        </a>
+
+        <button class="nav-toggle" data-menu-btn aria-expanded="false" aria-label="Open menu">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="services.html">Services</a>
+          <a href="fleet.html">Fleet</a>
+          <a href="rates.html">Rates</a>
+          <a href="driver-training.html">Driver Training</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-tools">
+          <div class="header-phones">
+            <a href="tel:+17044301586">(704) 430-1586</a>
+          </div>
+          <a class="btn btn-gold header-book" href="contact.html">Book Now</a>
         </div>
       </div>
-      <nav>
-        <a href="services.html">Services</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="rates.html">Rates</a>
-        <a href="driver-training.html">Driver Training</a>
-        <a href="contact.html">Contact</a>
-      </nav>
     </header>
 
     <main>
-      <section class="slideshow">
-        <div class="slides">
-          <img src="images/yukonxl.jpg" alt="GMC Yukon XL">
-          <img src="images/chevy.jpg" alt="Chevy Suburban">
-          <img src="images/ford.jpg" alt="2025 Ford Expedition Max Black">
+      <section class="showcase">
+        <div class="showcase-overlay"></div>
+        <div class="wrap showcase-inner">
+          <div class="showcase-copy">
+            <p class="showcase-kicker">Premium Chauffeur Service</p>
+            <h1>Arrive in Luxury and Style</h1>
+            <p>
+              Executive transportation for airport transfers, weddings, business events, and private rides throughout Charlotte and nearby areas.
+            </p>
+            <div class="cta">
+              <a href="contact.html" class="btn btn-gold">Reserve Your Ride</a>
+              <a href="fleet.html" class="btn btn-ghost-light">View Our Fleet</a>
+            </div>
+          </div>
+
+          <aside class="showcase-panel">
+            <h2>Luxury On-Demand</h2>
+            <ul>
+              <li>Meticulously maintained SUVs</li>
+              <li>Background-checked professional chauffeurs</li>
+              <li>24/7 advance booking and dispatch</li>
+            </ul>
+            <p>From your front door to your destination, every ride is built around comfort, timing, and professionalism.</p>
+          </aside>
         </div>
-        <!-- navigation arrows -->
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+
+        <div class="wrap quick-cards">
+          <article class="quick-card">
+            <h3>Wedding Transport</h3>
+            <p>Elegant arrivals and punctual service for your most important day.</p>
+          </article>
+          <article class="quick-card">
+            <h3>Corporate Travel</h3>
+            <p>Professional private transportation for executives and clients.</p>
+          </article>
+          <article class="quick-card">
+            <h3>Airport Transfers</h3>
+            <p>On-time pickups with flight tracking and premium vehicle comfort.</p>
+          </article>
+        </div>
       </section>
-      
-      <section class="hero">
-        <div class="hero-card">
-          <h1>Luxury Transportation in Charlotte & Beyond</h1>
-          <p class="lead">On time, professional chauffeurs and a modern fleet — perfect for airport transfers, corporate travel, weddings, and events.</p>
-          <div class="cta">
-            <a href="contact.html" class="btn">Book a Ride</a>
-            <a href="rates.html" class="btn ghost">View Rates</a>
+
+      <section class="wrap image-band">
+        <article class="image-tile">
+          <img src="images/yukonxl.jpg" alt="GMC Yukon XL" />
+          <div>
+            <h3>Airport Luxury</h3>
+            <p>Spacious luggage capacity and smooth, quiet rides.</p>
           </div>
-          <div class="small" style="margin-top:14px;">
-            24/7 Dispatch • Phone: <strong>(704) 430-1586</strong> • Email: <strong>yotlimo@gmail.com</strong>
+        </article>
+        <article class="image-tile">
+          <img src="images/chevy.jpg" alt="Chevy Suburban" />
+          <div>
+            <h3>Business Class Comfort</h3>
+            <p>Impress clients with discreet and polished transportation.</p>
           </div>
-        </div>
+        </article>
+        <article class="image-tile">
+          <img src="images/ford.jpg" alt="Ford Expedition Max" />
+          <div>
+            <h3>Event Ready</h3>
+            <p>Room for groups and dependable service for every schedule.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="wrap" style="margin-top: 1.4rem">
+        <section class="slideshow" aria-label="Fleet gallery">
+          <div class="slide-track">
+            <img class="slide" data-slide src="images/yukonxl.jpg" alt="GMC Yukon XL" />
+            <img class="slide" data-slide src="images/chevy.jpg" alt="Chevy Suburban" />
+            <img class="slide" data-slide src="images/ford.jpg" alt="2025 Ford Expedition Max" />
+          </div>
+          <div class="slide-controls">
+            <button class="slide-btn" data-prev aria-label="Previous slide">&#10094;</button>
+            <button class="slide-btn" data-next aria-label="Next slide">&#10095;</button>
+          </div>
+        </section>
       </section>
     </main>
 
-    <footer>
-      © <span id="year"></span> YO Limo & Transportation LLC • All rights reserved
+    <footer class="site-footer">
+      <div class="wrap footer-inner">© <span data-year></span> YO Limo & Transportation LLC • All rights reserved</div>
     </footer>
-  </div>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slideshow img');
-    const prevBtn = document.querySelector('.slideshow .prev');
-    const nextBtn = document.querySelector('.slideshow .next');
-    
-    function showSlide(n) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === n) slide.classList.add('active');
-      });
-    }
-    
-    function nextSlide() {
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }
-    
-    function prevSlide() {
-      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-      showSlide(slideIndex);
-    }
-    
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
-    // Auto play every 5s
-    setInterval(nextSlide, 3000);
-    
-    // Show first slide
-    showSlide(slideIndex);
-    </script>
-    
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

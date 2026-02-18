@@ -1,80 +1,91 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Rates | YO Limo & Transportation LLC</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img">
-        <div style="font-weight:700">YO Limo & Transportation LLC</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rates | YO Limo & Transportation LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page page-rates">
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <img src="images/logo.png" alt="YO Limo & Transportation Logo" class="logo-img" />
+          <div>
+            <p class="brand-name">YO Limo & Transportation</p>
+            <p class="brand-tag">Professional • Reliable • On Time</p>
+          </div>
+        </a>
+        <button class="nav-toggle" data-menu-btn aria-expanded="false">Menu</button>
+        <nav class="site-nav" data-nav>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="fleet.html">Fleet</a>
+          <a href="rates.html" aria-current="page">Rates</a>
+          <a href="driver-training.html">Driver Training</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-tools">
+          <div class="header-phones">
+            <a href="tel:+17044301586">(704) 430-1586</a>
+          </div>
+          <a class="btn btn-gold header-book" href="contact.html">Book Now</a>
+        </div>
       </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="fleet.html">Fleet</a>
-        <a href="rates.html">Rates</a>
-        <a href="driver-training.html">Driver Training</a>
-        <a href="contact.html">Contact</a>
-      </nav>
     </header>
 
-    <main>
-      <section id="rates">
-        <h2>Rates</h2>
-        <div class="card rates-card">
-          <table aria-label="Rates table">
-            <thead>
-              <tr>
-                <th>Trip</th>
-                <th colspan="4">Passengers</th>
-              </tr>
-              <tr>
-                <th></th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Airport Drop</td><td>$30</td><td>$35</td><td>$40</td><td>$50</td></tr>
-              <tr><td>Airport to Uptown</td><td>$35</td><td>$35</td><td>$45</td><td>$55</td></tr>
-              <tr><td>Ballantine Resort</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Carolina Mall - Pineville</td><td>$50</td><td>$50</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Concord Mills</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>North Lake Mall</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>PNC Pavilion</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Whitewater Center</td><td>$45</td><td>$50</td><td>$60</td><td>$70</td></tr>
-              <tr><td>South Park Mall</td><td>$30</td><td>$35</td><td>$40</td><td>$55</td></tr>
-              <tr><td>Lake Norm./Com.Exi 23-28</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Quail Hollow</td><td>$35</td><td>$40</td><td>$40</td><td>$50</td></tr>
-              <tr><td>CLT Country Club</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Mooresville</td><td>$65</td><td>$65</td><td>$70</td><td>$75</td></tr>
-              <tr><td>Rock Hill</td><td>$60</td><td>$60</td><td>$65</td><td>$75</td></tr>
-              <tr><td>Matthews</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
-              <tr><td>Harrisburg</td><td>$60</td><td>$60</td><td>$65</td><td>$75</td></tr>
-            </tbody>
-          </table>
-          <div class="rates-note">
-            * Outside city limits add <strong>$3.00 per mile</strong> •  
-            20% gratuity may be added •  
-            Prices subject to change for special events & after-hours
-          </div>
-        </div>
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <p class="page-hero-kicker">Rates</p>
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Local pricing by passenger count. Contact us for long-distance and custom quotes.</p>
+      </div>
+    </section>
+
+    <main class="wrap page-main">
+      <section class="card" style="overflow-x: auto">
+        <table aria-label="Rates table">
+          <thead>
+            <tr>
+              <th>Trip</th>
+              <th>1 Passenger</th>
+              <th>2 Passengers</th>
+              <th>3 Passengers</th>
+              <th>4 Passengers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Airport Drop</td><td>$30</td><td>$35</td><td>$40</td><td>$50</td></tr>
+            <tr><td>Airport to Uptown</td><td>$35</td><td>$35</td><td>$45</td><td>$55</td></tr>
+            <tr><td>Ballantyne Resort</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Carolina Mall - Pineville</td><td>$50</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Concord Mills</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Northlake Mall</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>PNC Pavilion</td><td>$50</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Whitewater Center</td><td>$45</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>SouthPark Mall</td><td>$30</td><td>$35</td><td>$40</td><td>$55</td></tr>
+            <tr><td>Lake Norman (Exits 23-28)</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Quail Hollow</td><td>$35</td><td>$40</td><td>$40</td><td>$50</td></tr>
+            <tr><td>Charlotte Country Club</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Mooresville</td><td>$65</td><td>$65</td><td>$70</td><td>$75</td></tr>
+            <tr><td>Rock Hill</td><td>$60</td><td>$60</td><td>$65</td><td>$75</td></tr>
+            <tr><td>Matthews</td><td>$55</td><td>$55</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Harrisburg</td><td>$60</td><td>$60</td><td>$65</td><td>$75</td></tr>
+          </tbody>
+        </table>
+        <p class="rates-note">Outside city limits add <strong>$3.00 per mile</strong> • 20% gratuity may be added • Rates may change for special events and after-hours service.</p>
       </section>
     </main>
 
-    <footer>
-      © <span id="year"></span> YO Limo & Transportation LLC • All rights reserved
+    <footer class="site-footer">
+      <div class="wrap footer-inner">© <span data-year></span> YO Limo & Transportation LLC • All rights reserved</div>
     </footer>
-  </div>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-
