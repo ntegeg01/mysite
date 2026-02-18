@@ -183,6 +183,10 @@ img {
   background: #dfeef6;
 }
 
+.mobile-contact {
+  display: none;
+}
+
 main {
   padding: 2.1rem 0 3rem;
 }
@@ -732,5 +736,28 @@ textarea:focus {
 
   .page-hero h1 {
     max-width: 12ch;
+  }
+}
+
+@media (max-width: 759px) and (orientation: portrait) {
+  .mobile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: min(680px, 100% - 1.1rem);
+    margin: 0.65rem auto 0;
+  }
+
+  .mobile-contact a {
+    display: block;
+    text-align: center;
+    background: #fff;
+    color: var(--navy-900);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.45rem 0.6rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    box-shadow: var(--shadow-soft);
   }
 }
